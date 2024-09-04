@@ -31,23 +31,24 @@ def listar_pastas(diretorio, fileformat):
     except Exception:
         pass
 
+
+
 interface = Interface()
-
-
 
 
 interface.clearScreenShowTitle('#', "EASY DD BURNER")
 time.sleep(0.5)
-print('\nShowing your iso files:\n')
+print('\nShowing your disk images:\n')
 
-listar_pastas(f'/home/{os.getlogin()}', 'iso')
+for fileformat in ['img', 'iso']:
+    listar_pastas(f'/home/{os.getlogin()}', fileformat)
 
 
 for x in range(len(isoFiles)):
     print(f'[{x+1}]  {isoFiles[x]}')
 
 
-file = isoFiles[int(input('\nSelect the iso file to use: '))-1]
+file = isoFiles[int(input('\nSelect the file to use: '))-1]
 
 print(f'\n{file} selected')
 time.sleep(2)
